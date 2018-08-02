@@ -1,8 +1,12 @@
 import React, {Component} from 'react';
-import {View} from 'react-native';
+import {View, Switch, Text} from 'react-native';
 import BackgroundGeolocation from 'react-native-mauron85-background-geolocation';
 
 export default class BackgroundGeolocationComponent extends Component<Props> {
+
+    state = {
+        tracking: true
+    }
 
     componentDidMount() {
         BackgroundGeolocation.configure({
@@ -10,8 +14,8 @@ export default class BackgroundGeolocationComponent extends Component<Props> {
             stationaryRadius: 50,
             distanceFilter: 50,
             notificationTitle: 'Background tracking',
-            notificationText: 'enabled',
-            debug: true,
+            notificationText: 'DISABLED',
+            debug: false,
             startOnBoot: false,
             stopOnTerminate: false,
             locationProvider: BackgroundGeolocation.ACTIVITY_PROVIDER,
@@ -92,7 +96,6 @@ export default class BackgroundGeolocationComponent extends Component<Props> {
                 BackgroundGeolocation.start(); //triggers start on start event
             }
         });
-
         // you can also just start without checking for status
         // BackgroundGeolocation.start();
     }
@@ -102,8 +105,24 @@ export default class BackgroundGeolocationComponent extends Component<Props> {
         BackgroundGeolocation.events.forEach(event => BackgroundGeolocation.removeAllListeners(event));
     }
 
-    render(){
-        return <View></View>
+    render() {
+        return (
+            <View style={{paddingTop: 35, width: '100%'}}>
+                <View style={{margin: 15, justifyContent: 'space-between', flexDirection: 'row'}}>
+                    <Switch onValueChange={(value) => {
+                        this.setState({tracking: value})
+
+                        if(value)
+                            BackgroundGeolocation.start();
+                        else
+                            BackgroundGeolocation.stop();
+
+                    }}
+                            value={this.state.tracking}/>
+                    <Text> تفعيل التتبع:</Text>
+                </View>
+            </View>
+        )
     }
 
 }

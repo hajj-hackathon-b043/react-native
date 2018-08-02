@@ -9,17 +9,22 @@
 import React, {Component} from 'react';
 import {Platform, StyleSheet, Text, View} from 'react-native';
 import BackgroundGeolocationComponent from './app/components/BackgroundGeolocationComponent';
+import PushAnnouncement from './app/components/PushAnnouncement';
+
 
 type Props = {};
 export default class App extends Component<Props> {
 
     render() {
         return (
-            <BackgroundGeolocationComponent group='testGroup'>
-                <View style={styles.container}>
 
-                </View>
-            </BackgroundGeolocationComponent>
+            <View style={styles.container}>
+                <BackgroundGeolocationComponent group='testGroup' />
+
+                <PushAnnouncement />
+
+
+            </View>
 
         );
     }
@@ -28,18 +33,8 @@ export default class App extends Component<Props> {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        justifyContent: 'center',
+        justifyContent: 'flex-start',
         alignItems: 'center',
-        backgroundColor: '#F5FCFF',
-    },
-    welcome: {
-        fontSize: 20,
-        textAlign: 'center',
-        margin: 10,
-    },
-    instructions: {
-        textAlign: 'center',
-        color: '#333333',
-        marginBottom: 5,
+        backgroundColor: 'rgb(241, 241, 241)',
     },
 });
