@@ -19,7 +19,7 @@ export default class App extends Component<Props> {
         return (
 
             <View style={styles.container}>
-                <BackgroundGeolocationComponent group='testGroup' />
+                <BackgroundGeolocationComponent group='b-45' />
 
                 <PushAnnouncement />
 

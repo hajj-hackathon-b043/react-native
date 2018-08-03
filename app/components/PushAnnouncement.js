@@ -25,8 +25,8 @@ export default class PushAnnouncement extends Component<Props> {
 
         const requestOptions = {
             method: 'POST',
-            url: 'http://localhost:3000/notifications/notify-topic',
-            // url: 'https://desolate-caverns-43961.herokuapp.com/notifications/notify-topic',
+            // url: 'http://localhost:3000/notifications/notify-topic',
+            url: 'https://desolate-caverns-43961.herokuapp.com/notifications/notify-topic',
             headers: {'Content-Type': 'application/json'},
             body: {
                 "message": {

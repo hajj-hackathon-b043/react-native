@@ -15,7 +15,7 @@ export default class BackgroundGeolocationComponent extends Component<Props> {
             distanceFilter: 50,
             notificationTitle: 'Background tracking',
             notificationText: 'DISABLED',
-            debug: false,
+            debug: true,
             startOnBoot: false,
             stopOnTerminate: false,
             locationProvider: BackgroundGeolocation.ACTIVITY_PROVIDER,
@@ -23,8 +23,10 @@ export default class BackgroundGeolocationComponent extends Component<Props> {
             fastestInterval: 5000,
             activitiesInterval: 10000,
             stopOnStillActivity: false,
-            url: 'http://localhost:3000/tracking/locations',
-            syncUrl: 'http://localhost:3000/tracking/sync',
+            // url: 'http://localhost:3000/tracking/locations',
+            url: 'https://desolate-caverns-43961.herokuapp.com/tracking/locations',
+            // syncUrl: 'http://localhost:3000/tracking/sync',
+            syncUrl: 'https://desolate-caverns-43961.herokuapp.com/tracking/sync',
             syncThreshold: 100,
             httpHeaders: {
                 'X-AUTHORIZATION': this.props.group
